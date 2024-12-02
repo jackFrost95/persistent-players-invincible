@@ -49,6 +49,7 @@ public class PlayerEvents {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void playerLogOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        // TODO: Make this toggleable for every player
         if (!(event.player instanceof EntityPlayerMP)) {
             return;
         }

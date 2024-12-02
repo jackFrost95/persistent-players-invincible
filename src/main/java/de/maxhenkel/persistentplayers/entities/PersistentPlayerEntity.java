@@ -74,7 +74,7 @@ public class PersistentPlayerEntity extends EntityMob {
             e.printStackTrace();
         }
         player.getActivePotionEffects().forEach(persistentPlayer::addPotionEffect);
-        persistentPlayer.setEntityInvulnerable(player.isCreative());
+        persistentPlayer.setEntityInvulnerable(true);
         persistentPlayer.setPlayerModel(getModel(player));
         return persistentPlayer;
     }
@@ -134,9 +134,6 @@ public class PersistentPlayerEntity extends EntityMob {
 
     @Override
     public boolean isEntityInvulnerable(DamageSource source) {
-        if (!getIsInvulnerable()) {
-            return super.isEntityInvulnerable(source);
-        }
         return source != DamageSource.OUT_OF_WORLD;
     }
 
